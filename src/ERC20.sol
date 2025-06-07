@@ -28,12 +28,12 @@ contract ERC20 {
         _transfer(msg.sender, to, value);
     }
 
-    function _mint(address to, uint256 value) private {
+    function _mint(address to, uint256 value) internal {
         balanceOf[to] += value;
         totalSupply += value;
     }
 
-    function _burn(address from, uint256 value) private {
+    function _burn(address from, uint256 value) internal {
         balanceOf[from] -= value;
         totalSupply -= value;
     }
