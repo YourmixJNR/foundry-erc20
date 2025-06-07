@@ -46,4 +46,22 @@ contract ERC20TransferSetup is BsseSetup {
         // assert that Bob's balance is now 100 tokens
         assertEqDecimal(this.balanceOf(bob), 100e18, decimal);
     }
+
+    function testCannotTransferMoreThanBalance() public {
+        vm.prank(alice);
+        vm.expectRevert("ERC20: Insufficient sender balance");
+        this.transfer(bob, 300e18);
+    }
+
+    function testEmitsTransferEvent() public {
+        // expect the Transfer event to be emitted
+        vm.expectEmit(true, true, true, true);
+        emit Transfer(alice, bob, 100e18);
+
+        // simulate Alice as the msg.sender
+        vm.prank(alice);
+
+        // transfer 100 tokens to Bob
+        this.transfer(bob, 100e18);
+    }
 }
