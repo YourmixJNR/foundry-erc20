@@ -9,6 +9,10 @@ This project demonstrates an ERC20 token implementation and test suite using [Fo
 - Deployment scripts for Sepolia and other EVM-compatible networks
 - Example configuration for environment variables and network endpoints
 
+## Deployed Contract
+
+- [ERC20 on Sepolia Etherscan](https://sepolia.etherscan.io/address/0xd5826ae31e2db51b9bcf9ca9cf478618b697e817)
+
 ## Getting Started
 
 ### Prerequisites
@@ -78,4 +82,3 @@ forge script script/ERC20.s.sol:ERC20Script --rpc-url sepolia --broadcast --veri
 - [Foundry Book](https://book.getfoundry.sh/)
 - [Etherscan API Keys](https://etherscan.io/myapikey)
 - [Infura](https://infura.io/) / [Alchemy](https://alchemy.com/)
-
