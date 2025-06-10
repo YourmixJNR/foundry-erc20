@@ -1,66 +1,81 @@
-## Foundry
+# Foundry ERC20
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This project demonstrates an ERC20 token implementation and test suite using [Foundry](https://book.getfoundry.sh/), a fast, modular toolkit for Ethereum application development.
 
-Foundry consists of:
+## Features
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- Custom ERC20 contract in Solidity
+- Comprehensive tests using Forge
+- Deployment scripts for Sepolia and other EVM-compatible networks
+- Example configuration for environment variables and network endpoints
 
-## Documentation
+## Getting Started
 
-https://book.getfoundry.sh/
+### Prerequisites
 
-## Usage
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed (`forge`, `anvil`)
+- Node.js (optional, for managing `.env` files)
+- An Infura/Alchemy RPC URL and funded testnet wallet for deployment
+
+### Installation
+
+Clone the repo and install dependencies:
+
+```sh
+git clone https://github.com/yourusername/foundry-erc20.git
+cd foundry-erc20
+forge install
+```
+
+### Environment Setup
+
+Create a `.env` file in the root directory:
+
+```env
+SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/<your_infura_project_id>
+PRIVATE_KEY=0x<your_private_key>
+ETHERSCAN_API_KEY=<your_etherscan_api_key>
+```
 
 ### Build
 
-```shell
-$ forge build
+```sh
+forge build
 ```
 
 ### Test
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
+```sh
+forge test
 ```
 
 ### Deploy
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+Update your `.env` and `foundry.toml` with the correct RPC URLs and keys.
+
+To deploy to Sepolia (or another network configured in `foundry.toml`):
+
+```sh
+forge script script/ERC20.s.sol:ERC20Script --rpc-url sepolia --broadcast --verify
 ```
 
-### Cast
+### Project Structure
 
-```shell
-$ cast <subcommand>
-```
+- `src/ERC20.sol` - ERC20 contract implementation
+- `test/ERC20.t.sol` - Test suite for the ERC20 contract
+- `script/ERC20.s.sol` - Deployment script
+- `foundry.toml` - Foundry configuration
+- `.env` - Environment variables (not committed)
 
-### Help
+### Useful Commands
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- Format code: `forge fmt`
+- Run local node: `anvil`
+- Interact with contracts: `cast <subcommand>`
+
+## Resources
+
+- [Foundry Book](https://book.getfoundry.sh/)
+- [Etherscan API Keys](https://etherscan.io/myapikey)
+- [Infura](https://infura.io/) / [Alchemy](https://alchemy.com/)
+
