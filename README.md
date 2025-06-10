@@ -26,7 +26,7 @@ This project demonstrates an ERC20 token implementation and test suite using [Fo
 Clone the repo and install dependencies:
 
 ```sh
-git clone https://github.com/yourusername/foundry-erc20.git
+git clone https://github.com/YourmixJNR/foundry-erc20.git
 cd foundry-erc20
 forge install
 ```
